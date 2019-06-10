@@ -29,10 +29,34 @@ function binarySearch(target,arr){
 		if(middle === target){
 			return midIndex;
 		}else if(target > middle){
-			start = midIndex +1;
+			first = midIndex +1;
 		}else {
-			end = midIndex -1;
+			last = midIndex -1;
 		}
 	}
 	return -1;
+}
+
+// 乱序的情况下
+function binarySearch(target,arr) {
+	while(arr.length > 0) {
+		let left = [];
+		let right = [];
+		const middleIndex = Math.floor(arr.length/2);
+		const middle = arr[middleIndex];
+		for(let i = 0; i< arr.length; i++) {
+			let item = arr[i];
+			if(i !== middleIndex) {
+				item > middle ? right.push(item) : left.push(item);
+			}
+		}
+			if(target === middle) {
+				return true;
+			}else if(target > middle){
+				arr = right;
+			}else {
+				arr = left;
+			}
+		}
+	return false;
 }
