@@ -38,7 +38,7 @@ console.log(arr)
 const arr = Array.from({
   length: 10
 }, () => ~~(Math.random() * 50)) //创建数据
-.sort((a, b) => a - b)； //排序
+.sort((a, b) => a - b); //排序
 const arr1 = [...new Set(arr.map(i => ~~(i / 10)))] //划分区域
 .map(i => arr.filter(a => ~~(a / 10) === i)) //数据划分
 console.log(arr1);
