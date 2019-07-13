@@ -11,7 +11,7 @@ const result = arr.reduce((acc,item) => acc^item)
 
 // 若只有2个数不重复，实现一个函数找出这2个数。
 const arr = [1, 3, 1, 4, 5, 6, 4, 8, 5, 3];
-arr.filter(item => arr.lastIndexOf(item) === arr.lastIndexOf(item));
+arr.filter(item => arr.indexOf(item) === arr.lastIndexOf(item));
 
 // 找出数组唯一重复的字符
 // 先转成数字再使用异或操作
