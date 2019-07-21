@@ -55,16 +55,21 @@
 var convertToTitle = function(n) {
   let stack = '';
     while(n) {
-      const last = n%26;
-      const quotient = n/26;
-      if(last === 0) {
-        stack = 'Z' + stack;
-        n = ~~ quotient - 1;
-      }else {
-        stack = String.fromCharCode(last + 64) + stack;
-        n = ~~ quotient;
-      }
+      n = n-1;
+      stack = String.fromCharCode(n%26 + 65) + stack;
+      n = ~~(n/26);
     }
     return stack
 };
 
+/* while(n) {
+  const last = n%26;
+  const quotient = n/26;
+  if(last === 0) {
+    stack = 'Z' + stack;
+    n = ~~ quotient - 1;
+  }else {
+    stack = String.fromCharCode(last + 64) + stack;
+    n = ~~ quotient;
+  }
+} */
