@@ -53,16 +53,18 @@
  * @return {string}
  */
 var convertToTitle = function(n) {
-  let stack = [];
+  let stack = '';
     while(n) {
-      if(n%26 === 0) {
-        stack.unshift(26);
-        n = ~~(n/26) - 1;
+      const last = n%26;
+      const quotient = n/26;
+      if(last === 0) {
+        stack = 'Z' + stack;
+        n = ~~ quotient - 1;
       }else {
-        stack.unshift(n%26);
-        n = ~~(n/26);
+        stack = String.fromCharCode(last + 64) + stack;
+        n = ~~ quotient;
       }
     }
-    return stack.map(item => String.fromCharCode(item + 64)).join('');
+    return stack
 };
 
