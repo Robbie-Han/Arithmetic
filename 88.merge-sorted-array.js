@@ -42,23 +42,23 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function(nums1, m, nums2, n) {
-    if(n === 0){
-      return nums1;
-    }
- /*    nums1.splice(m);
-    for(let item of nums2){
-      let index = nums1.findIndex(v => v > item);
-      if(index >= 0){
-        nums1.splice(index,0,item);
+  var t = m + n - 1;
+  var m = m - 1;
+  var n = n - 1;
+  while(m >= 0 && n >= 0) {
+      if(nums1[m] >= nums2[n]) {
+          nums1[t] = nums1[m];
+          m--;
       }else {
-        nums1.push(item)
+          nums1[t] = nums2[n];
+          n--;
       }
-    }
-    return nums1 */
-    for(let i = 0; i < n; i++) {
-      nums1[m+i] = nums2[i];
-    }
-    nums1 = nums1.sort((a,b) => a-b);
-    return nums1
+      t--;
+  }
+  if(n >= 0) {
+      for(let i = 0; i <=n; i++) {
+          nums1[i] = nums2[i];
+      }
+  }
+  return nums1
 };
-

@@ -23,10 +23,10 @@ function quickSort(arr) {
 
 /* 双指针法，左右各一个指针，取第一个值flag，先动右指针，大于等于flag的时候像左移动，小的时候停止
 再移动左指针，在遇到不小于flag的时候停止，交换位置。直到i>j为止。然后分别递归i左侧和右侧的部分数组 */
-function piper(left,right) {
+function proper(left,right) {
   var flag = arr[left];
   var i = left,j = right;
-  if(i>j) return;
+  if(i>j) return; 
   while(i<j){
     while(arr[j]>=flag && i<j){
       j--;
