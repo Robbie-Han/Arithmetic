@@ -30,14 +30,15 @@ function proper(left,right) {
   while(i<j){
     while(arr[j]>=flag && i<j){
       j--;
-    }
-    while(arr[i]< flag && i<j){
+    }  
+    while(arr[i]<=flag && i<j){
       i++;
     }
     var t = arr[j];
     arr[j] = arr[i];
     arr[i] = t;
   }
+  [arr[i], arr[left]] = [arr[left], arr[i]];
   proper(left,i-1);
   proper(i+1,right);
 }
